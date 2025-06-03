@@ -2,7 +2,7 @@
   --ff: 'Outfit', sans-serif;
 
   --fs-regular: 0.9375rem;
-  --fs-bold: 1.47rem;
+  --fs-bold: 1.375rem;
 
   --fw-normal: 400;
   --fw-bold: 700;
@@ -13,10 +13,14 @@
   --clr-slate-500: hsl(216, 15%, 48%);
   --clr-slate-900: hsl(218, 44%, 22%);
 
-  --card-box-shadow: 0 1.667rem 1.667rem 0 rgba(0, 0, 0, 0.05);
-  --card-hover-box-shadow: 0 2.33rem 2.33rem rgba(0, 0, 0, 0.1);
+  --card-box-shadow: 0 1.5625rem 1.5625rem 0 rgba(0, 0, 0, 0.05);
+  --card-hover-box-shadow: 0 2.1875rem 2.1875rem rgba(0, 0, 0, 0.1);
   --card-transition: transform 0.3s ease, box-shadow 0.3s ease;
   --card-transition-reduced-motion: transform 1s ease, box-shadow 1s ease;
+
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
 }
 
 *,
@@ -31,7 +35,6 @@ a {
 
 html {
   font-family: var(--ff);
-  font-size: var(--fs-regular);
   font-weight: var(--fw-normal);
   line-height: 1.4;
 }
@@ -47,18 +50,18 @@ body {
   place-items: center;
 
   min-height: 100vh;
-  padding: 1rem;
+  padding: var(--space-s);
 }
 
 .card {
   width: 100%;
-  max-width: 21.33rem;
+  max-width: 20rem;
 
-  padding-inline: 1.067rem;
-  padding-block-start: 1.067rem;
-  padding-block-end: 2.667rem;
+  padding-inline: var(--space-s);
+  padding-block-start: var(--space-s);
+  padding-block-end: var(--space-l);
 
-  border-radius: 1.334rem;
+  border-radius: 1.25rem;
   box-shadow: var(--card-box-shadow);
   background: var(--clr-white);
 
@@ -82,13 +85,13 @@ body {
 .card__img {
   display: block;
 
-  border-radius: 0.67rem;
+  border-radius: 0.625rem;
   width: 100%;
 }
 
 .card__content {
-  padding-inline: 1.067rem;
-  margin-block-start: 1.6rem;
+  padding-inline: var(--space-s);
+  margin-block-start: var(--space-m);
 }
 
 .card__header {
@@ -102,24 +105,31 @@ body {
 
 .card__description {
   margin: 0;
-  margin-block-start: 1.067rem;
+  margin-block-start: var(--space-s);
 
+  font-size: var(--fs-regular);
   color: var(--clr-slate-500);
   letter-spacing: 0.2px;
 }
 
-@media (max-width: 23.33rem) {
-  :root {
-    font-size: 0.8rem;
-  }
-
+@media (max-width: 21.875rem) {
   .card {
-    padding: 1rem;
+    padding: var(--space-s);
   }
 
   .card__content {
-    margin-block-start: 1rem;
+    margin-block-start: var(--space-s);
     padding: 0 0.5rem;
+
     text-wrap: balance;
+  }
+
+  .card__header,
+  .card__description {
+    font-size: clamp(1rem, 6vw, 1.375rem);
+  }
+
+  .card__description {
+    font-size: clamp(0.6rem, 4vw, 0.9375rem);
   }
 }
