@@ -1,8 +1,7 @@
 :root {
   --ff: 'Outfit', sans-serif;
 
-  font-size: 15px;
-  --fs-regular: 1rem;
+  --fs-regular: 0.9375rem;
   --fs-bold: 1.47rem;
 
   --fw-normal: 400;
@@ -13,6 +12,11 @@
   --clr-slate-300: hsl(212, 45%, 89%);
   --clr-slate-500: hsl(216, 15%, 48%);
   --clr-slate-900: hsl(218, 44%, 22%);
+
+  --card-box-shadow: 0 1.667rem 1.667rem 0 rgba(0, 0, 0, 0.05);
+  --card-hover-box-shadow: 0 2.33rem 2.33rem rgba(0, 0, 0, 0.1);
+  --card-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  --card-transition-reduced-motion: transform 1s ease, box-shadow 1s ease;
 }
 
 *,
@@ -48,27 +52,30 @@ body {
 
 .card {
   width: 100%;
-  max-width: 320px;
+  max-width: 21.33rem;
 
-  padding: 16px 16px 40px 16px;
+  padding-inline: 1.067rem;
+  padding-block-start: 1.067rem;
+  padding-block-end: 2.667rem;
+
   border-radius: 1.334rem;
-  box-shadow: 0 25px 25px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--card-box-shadow);
   background: var(--clr-white);
 
   text-align: center;
   overflow: hidden;
 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--card-transition);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 35px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.3rem);
+  box-shadow: var(--card-hover-box-shadow);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card {
-    transition: transform 1s ease, box-shadow 1s ease;
+    transition: var(--card-transition-reduced-motion);
   }
 }
 
@@ -80,9 +87,8 @@ body {
 }
 
 .card__content {
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-block-start: 24px;
+  padding-inline: 1.067rem;
+  margin-block-start: 1.6rem;
 }
 
 .card__header {
@@ -96,13 +102,13 @@ body {
 
 .card__description {
   margin: 0;
-  margin-block-start: 16px;
+  margin-block-start: 1.067rem;
 
   color: var(--clr-slate-500);
   letter-spacing: 0.2px;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 23.33rem) {
   :root {
     font-size: 0.8rem;
   }
