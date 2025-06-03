@@ -66,6 +66,12 @@ body {
   box-shadow: 0 35px 35px rgba(0, 0, 0, 0.1);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: transform 1s ease, box-shadow 1s ease;
+  }
+}
+
 .card__img {
   display: block;
 
